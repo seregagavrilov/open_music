@@ -1,0 +1,54 @@
+.form-signin{
+
+}
+
+html{
+  height: 100%;
+  display: block;
+}
+body{
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  background-color: RGB(217, 237, 247);
+
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  height: 100%;
+}
+
+.main{
+  max-width: 700px;
+  padding: 15px;
+  margin: 0 ;
+  text-align: center;
+}
+
+.logo{
+  margin-bottom: 10px;
+}
+
+.alert-danger{
+  max-width: 800px;
+  margin-top: 10px;
+}
+
+.signup-btn{
+  width: 170px;
+}
+
+.form-signup{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-contorl{
+  padding: 10px;
+}
