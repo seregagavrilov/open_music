@@ -22,14 +22,12 @@ class Base(AuthenticationMixin, Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
-        # 'debug_toolbar',
         'django_extensions',
         'music_project',
         'library_api',
         'music_library_app',
         'authentication_users',
         'django_filters',
-        # 'oauth2_provider',
         'rest_framework',
     ]
 
@@ -42,7 +40,6 @@ class Base(AuthenticationMixin, Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     ]
 
     ROOT_URLCONF = 'music_project.urls'
@@ -92,16 +89,7 @@ class Base(AuthenticationMixin, Configuration):
     ]
 
 
-    # OAUTH2_PROVIDER = {
-    #     'SCOPES': {'read': 'Read scope', 'write': 'Write scope'}
-    # }
-
-
-
     REST_FRAMEWORK = {
-
-        # 'DEFAULT_AUTHENTICATION_CLASSES': (
-        #     'oauth2_provider.contrib.rest_framework.OAuth2Authentication',),
 
         'DEFAULT_PERMISSION_CLASSES': (
             'rest_framework.permissions.IsAuthenticated',
@@ -124,7 +112,7 @@ class Base(AuthenticationMixin, Configuration):
 
     STATIC_URL = '/static/'
 
-    ALLOWED_HOSTS = ['192.168.0.2','127.0.0.1', '194.87.235.18','0abaa493.ngrok.io']
+    ALLOWED_HOSTS = ['192.168.0.2','127.0.0.1', '194.87.235.18',]
 
 class Dev(Base):
     INTERNAL_IPS = ('127.0.0.1',)
