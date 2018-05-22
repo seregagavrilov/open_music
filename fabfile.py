@@ -4,10 +4,11 @@ from fabric.state import env
 from fabric.api import cd, run, sudo, settings
 from fabric.contrib.files import exists, upload_template
 
+env.hosts = ['root@138.68.145.206']
+
 def _set_env():
     home_path = '/home/fabric/'
-    env.DOMAIN_NAME = 'host'
-    env.hosts = ['ssh_user@%s' % env.DOMAIN_NAME]
+    env.password = 'a872f932f2f36574034ebecc93'
     env.PROJECT_NAME = 'open_music'
     env.TEMPLATES_PATH = 'deploy_templates'
     env.BASE_PYTHON_PATH = '/usr/bin/python3.5'

@@ -2,4 +2,8 @@ Django==2.0.3
 django-configurations==2.0
 django-extensions==2.0.2
 django-filter==1.1.0
+django-filters==0.2.1
+django-tastypie==0.14.1
 djangorestframework==3.7.7
+Fabric==1.14.0
+
