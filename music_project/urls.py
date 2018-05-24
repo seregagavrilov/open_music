@@ -11,6 +11,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('authentication/', include('authentication_users.urls')),
     path('profile/', include('music_library_app.urls')),
-    path('library_api/', include('library_api.urls')),
+    path('library_api/', include('library_api.urls', namespace = 'library_api')),
     #path('oauth_api/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]
