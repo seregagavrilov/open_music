@@ -7,8 +7,8 @@ from fabric.contrib.files import exists, upload_template
 env.hosts = ['root@138.68.145.206']
 
 def _set_env():
-    home_path = '/home/fabric/'
-    env.password = 'a872f932f2f36574034ebecc93'
+    home_path = '/var/www/'
+    env.user = 'sergey'
     env.PROJECT_NAME = 'open_music'
     env.TEMPLATES_PATH = 'deploy_templates'
     env.BASE_PYTHON_PATH = '/usr/bin/python3.5'
@@ -18,6 +18,7 @@ def _set_env():
     env.PYTHON = os.path.join(env.VIRTUAL_ENV_PATH, 'bin/python')
     env.DJANGO_CONFIGURATION_NAME = 'Prod'
     env.UWSGI_PROCESSES = 5
+    env.DOMAIN_NAME = '138.68.145.206'
     env.UWSGI_MODULE = 'library_api'
 
 def bootstrap():
@@ -49,17 +50,17 @@ def install_system_packages(packages, do_apt_get_update=True):
 
 
 def configure_nginx():
-    _put_template('project.nginx.conf', '/etc/nginx/conf.d', use_sudo=True)
+    _put_template('nginx.conf', '/etc/nginx/sites-available/%s.conf' % env.PROJECT_NAME, use_sudo=True)
 
 
 def configure_uwsgi():
     uwsgi_config_filename = 'project.ini'
-    uwsgi_base_config_filename = 'uwsgi.conf'
-    _put_template(uwsgi_config_filename, '/etc/uwsgi/apps-available/', use_sudo=True)
-    apps_enabled_link_path = '/etc/uwsgi/apps-enabled/%s' % uwsgi_config_filename
+    uwsgi_base_config_filename = 'uwsgi.service.conf'
+    _put_template(uwsgi_config_filename, '/etc/uwsgi.service/apps-available/', use_sudo=True)
+    apps_enabled_link_path = '/etc/uwsgi.service/apps-enabled/%s' % uwsgi_config_filename
     if not exists(apps_enabled_link_path):
         sudo(
-            'ln -s /etc/uwsgi/apps-available/%(file)s %(link)s' % {
+            'ln -s /etc/uwsgi.service/apps-available/%(file)s %(link)s' % {
                 'file': uwsgi_config_filename,
                 'link': apps_enabled_link_path,
             }
@@ -71,8 +72,9 @@ def configure_uwsgi():
 def create_folders():
     _mkdir(env.VIRTUAL_ENV_PATH)
     _mkdir(os.path.join(env.REMOTE_PROJECT_PATH, 'static'))
-    _mkdir('/etc/uwsgi/apps-enabled/', is_sudo=True)
-    _mkdir('/etc/uwsgi/apps-available/', is_sudo=True)
+    _mkdir('/etc/uwsgi.service/apps-enabled/', is_sudo=True)
+    _mkdir('/etc/uwsgi.service/apps-available/', is_sudo=True)
+    _mkdir('/etc/systemd/system/uwsgi.service.service', is_sudo=True)
 
 
 def update_src():
@@ -113,14 +115,14 @@ def install_libs():
 
 def restart_all():
     sudo('service nginx restart')
-    restart_initctl_services(['uwsgi'])
+    restart_initctl_services(['uwsgi.service'])
 
 
 def run_management_command(command):
     run('DJANGO_CONFIGURATION=%s %s %s %s' % (
         env.DJANGO_CONFIGURATION_NAME,
         env.PYTHON,
-        os.path.join(env.REMOTE_PROJECT_PATH, 'talaria', 'manage.py'),
+        os.path.join(env.REMOTE_PROJECT_PATH, 'open_music', 'manage.py'),
         command
     ))
 

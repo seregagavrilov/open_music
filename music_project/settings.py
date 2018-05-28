@@ -112,7 +112,7 @@ class Base(AuthenticationMixin, Configuration):
 
     STATIC_URL = '/static/'
 
-    ALLOWED_HOSTS = ['192.168.0.2','127.0.0.1', '194.87.235.18',]
+    ALLOWED_HOSTS = ['127.0.0.1', '138.68.145.206']
 
 class Dev(Base):
     INTERNAL_IPS = ('127.0.0.1',)
