@@ -5,8 +5,8 @@ app_name = 'library_api'
 
 urlpatterns = [
     path('api_v1/', include([
-        path('usersongs/', views.UserSongsList.as_view()),
-        path('usersongs/<pk>/',views.UserSong.as_view()),
+        path('usersongs/', views.UserSongsList.as_view(), name='usersongs'),
+        path('usersongs/<pk>/',views.UserSong.as_view(),name='usersong'),
         path('useralbums/', views.AlbumUserList.as_view()),
         path('userartists/', views.ArtistUserList.as_view()),
         path('userplaylist/', views.PlaylisttUserList.as_view()),

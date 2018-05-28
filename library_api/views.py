@@ -1,4 +1,4 @@
-from rest_framework import filters, permissions, generics, status,  mixins
+from rest_framework import filters, permissions, generics, status,  mixins, authentication
 from django.core.exceptions import ObjectDoesNotExist
 from .library_api_views_helpers import get_playlist
 from rest_framework.response import Response
@@ -8,7 +8,7 @@ from .library_api_views_helpers import __get_user_relating_data__
 
 
 class UserSong(generics.ListCreateAPIView):
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     serializer_class = serializers.SongsSerializer
     filter_fields = ('name', 'file_path', 'artist', 'album', 'last_play')
 
@@ -32,7 +32,7 @@ class UserSong(generics.ListCreateAPIView):
 
 
 class UserSongsList(generics.ListCreateAPIView, mixins.DestroyModelMixin):
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     serializer_class = serializers.SongsSerializer
     filter_fields = ('name', 'file_path', 'artist', 'album', 'last_play')
 

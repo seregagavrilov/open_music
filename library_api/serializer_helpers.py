@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from music_library_app.models import Playlist
 import datetime
-import dateutil.parser
 
 
 def get_user_names_for_curent_song(song_id):
