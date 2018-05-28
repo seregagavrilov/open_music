@@ -1,17 +1,115 @@
-{% include 'music_library_app/user_nav_bar.html' %}
-
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>{{ user_profile }}</title>
+  {% load staticfiles %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+  <title>Open music</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'music_project/index.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'music_project/offcanvas.css' %}">
+  <script type="text/javascript" src="{% static 'music_project/offcanvas.js' %}"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <script type="text/javascript" src="{% static 'music_project/audio.min.js' %}"> </script>
 </head>
+
 <body>
-    <div class="conteiner">
-
-        <h1>
-            {{ user_profile }}
-        </h1>
-
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="#">Open music</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><input type="text" placeholder="Search" class="form-control search-control"></li>
+          <li><a href="#about">Sign up</a></li>
+          <li><a href="#contact">Sign in</a></li>
+        </ul>
+      </div>
     </div>
+  </div>
+
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9">
+        <p class="pull-right visible-xs">
+          <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">>></button>
+        </p>
+        <div class="jumbotron main-content">
+          <table class="table">
+            <thead>
+              <tr class="">
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <tr>
+                <th scope="row">►1</th>
+                <td>American idiot</td>
+                <td>4:22</td>
+              </tr>
+              <tr>
+                <th scope="row">❙❙ 2</th>
+                <td>Holiday</td>
+                <td>3:11</td>
+
+              </tr>
+              <tr>
+                <th scope="row">►3</th>
+                <td>Warning</td>
+                <td>4:43</td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!--/row-->
+      </div>
+      <!--/span-->
+
+      <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class="list-group">
+          <a href="#" class="list-group-item songs-btn">My songs</a>
+          <a href="#" class="list-group-item artists-btn">My artists</a>
+          <a href="#" class="list-group-item albums-btn">My albums</a>
+          <a href="#" class="list-group-item playlists-btn">My playlists</a>
+        </div>
+      </div>
+      <!--/span-->
+    </div>
+    <!--/row-->
+
+    <hr>
+
+
+
+  </div>
+
+  <footer class="footer">
+      <div class="container container-footer">
+          <audio src="http://kolber.github.io/audiojs/demos/mp3/juicy.mp3" preload="auto" />
+      </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="{% static 'music_project/main.js' %}"> </script>
+  <link rel="stylesheet" type="text/css" href="{% static 'music_project/index.css' %}">
+
 </body>
+
 </html>
