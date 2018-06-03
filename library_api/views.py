@@ -61,7 +61,7 @@ class AlbumUserList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = serializers.AlbumsSerializer
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('name', 'year')
+    search_fields = ('name', 'year', 'artist')
 
     def get_queryset(self):
         cerrent_aouth_user = self.request.user
