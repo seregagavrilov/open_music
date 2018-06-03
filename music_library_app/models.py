@@ -21,6 +21,7 @@ class Gener(models.Model):
 
 
 class Album(models.Model):
+    artist = models.ForeignKey(Artist, default=1, on_delete=models.CASCADE)
     name = models.CharField(max_length=128)
     album_info = models.TextField(blank=True)
     year = models.DateField()

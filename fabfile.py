@@ -31,13 +31,13 @@ def bootstrap():
 
     install_system_packages(
         packages=[
-            'python-dev',
+            'python3-dev',
             'python-pip',
-            'uwsgi'
             'nginx',
             'git'
         ]
     )
+    # _put_template('uwsgi.service', '/etc/systemd/system/', use_sudo=True)
     create_folders()
     configure_nginx()
     configure_uwsgi()
@@ -61,7 +61,7 @@ def configure_nginx():
 
 def configure_uwsgi():
     uwsgi_config_filename = 'project.ini'
-    uwsgi_base_config_filename = 'systemd'
+    uwsgi_base_config_filename = 'uwsgi.service'
     _put_template(uwsgi_config_filename, '/etc/uwsgi/apps-available/', use_sudo=True)
     apps_enabled_link_path = '/etc/uwsgi/apps-enabled/%s' % uwsgi_config_filename
     if not exists(apps_enabled_link_path):
