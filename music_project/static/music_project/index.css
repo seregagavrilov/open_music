@@ -44,6 +44,15 @@ body{
 
 }
 
+.table-discription-container{
+  margin-bottom: 20px;
+
+}
+.table-discription-header{
+  font-size: 200%;
+  font-weight:bolder;
+}
+
 .list-group-item{
   background-color:#6DB99E;
 }
@@ -116,6 +125,8 @@ body{
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #DEE0C0;
 }
+.container > .row > .table > tbody > tr.active td
+
 /* Цвет пунктов меню в раскрывающихся списках */
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
