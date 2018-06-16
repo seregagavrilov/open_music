@@ -1,16 +1,20 @@
 from rest_framework import serializers
 
 from  music_library_app import models
+from django.contrib.auth.models import User
 from .serializer_helpers import get_user_names_for_curent_song, get_sharing_user_names_for_curent_playlist
 
 
 class AlbumsSerializer(serializers.ModelSerializer):
     year = serializers.DateField
 
+    # def get_year(self, obj):
+    #     year_from_date = get_year_from_data(obj.year)
+    #     return year_from_date
+
     class Meta:
         model = models.Album
         fields = ('id', 'name', 'year', 'artist')
-        lookup_field = 'id'
 
 
 class SongsSerializer(serializers.ModelSerializer):
