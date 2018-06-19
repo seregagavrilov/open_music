@@ -1,9 +1,11 @@
+from django.contrib.auth.models import User
+from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase, APIClient
-from music_library_app import models
-from django.urls import reverse
-from django.contrib.auth.models import User
+
+from music_project import models
 from .serializers import SongsSerializer
+
 
 class LibraryTestsCase(APITestCase):
     def setUp(self):

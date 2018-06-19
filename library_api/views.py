@@ -1,10 +1,11 @@
-from rest_framework import filters, permissions, generics, status,  mixins, authentication
 from django.core.exceptions import ObjectDoesNotExist
-from .library_api_views_helpers import get_playlist
+from rest_framework import filters, permissions, generics, status, mixins
 from rest_framework.response import Response
+
 from library_api import serializers
-from music_library_app import models
+from music_project import models
 from .library_api_views_helpers import __get_user_relating_data__
+from .library_api_views_helpers import get_playlist
 
 
 class UserSong(generics.ListCreateAPIView):

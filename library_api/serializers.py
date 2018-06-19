@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
-from  music_library_app import models
-from django.contrib.auth.models import User
+from music_project import models
 from .serializer_helpers import get_user_names_for_curent_song, get_sharing_user_names_for_curent_playlist
 
 

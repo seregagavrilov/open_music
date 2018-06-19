@@ -1,4 +1,5 @@
-from music_library_app import models
+from music_project import models
+
 
 def __get_user_relating_data__(user, model):
     """

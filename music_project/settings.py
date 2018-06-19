@@ -4,7 +4,7 @@ from configurations import Configuration
 class AuthenticationMixin():
 
     LOGIN_REDIRECT_URL = '/profile/login_redirect/'
-    LOGOUT_REDIRECT_URL = '/music_library_app/index'
+    # LOGOUT_REDIRECT_URL = '/music_library_app/index'
     LOGIN_URL = '/authentication_users/login'
 
 class Base(AuthenticationMixin, Configuration):

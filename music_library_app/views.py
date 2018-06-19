@@ -1,8 +1,5 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
-from django_filters.rest_framework import DjangoFilterBackend
-#from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope
-from rest_framework import viewsets, filters, permissions, generics
 
 @login_required(login_url='/authentication/login')
 def login_redirect(request):

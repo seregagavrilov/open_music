@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.timezone import localdate
 
 
 class Artist(models.Model):
@@ -21,7 +22,7 @@ class Gener(models.Model):
 
 
 class Album(models.Model):
-    artist = models.ForeignKey(Artist, default=1, on_delete=models.CASCADE)
+    artist = models.ForeignKey(Artist, related_name='whose_album', on_delete=models.CASCADE, blank=True)
     name = models.CharField(max_length=128)
     album_info = models.TextField(blank=True)
     year = models.DateField()

@@ -1,5 +1,4 @@
 from rest_framework import permissions
-from music_library_app.models import User
 
 
 class is_playlist_owner(permissions.BasePermission):
