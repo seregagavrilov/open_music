@@ -114,6 +114,12 @@ class Base(AuthenticationMixin, Configuration):
 
     ALLOWED_HOSTS = ['127.0.0.1', '138.68.145.206']
 
+    EMAIL_USE_TLS = True
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = 'inkine.sg@gmail.com'
+    EMAIL_HOST_PASSWORD = '1W2q2108683R4e5t6r'
+    EMAIL_PORT = 587
+
 class Dev(Base):
     INTERNAL_IPS = ('127.0.0.1',)
     DEBUG = True

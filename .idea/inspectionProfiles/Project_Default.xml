@@ -4,10 +4,17 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="3">
+          <list size="10">
             <item index="0" class="java.lang.String" itemvalue="django-tastypie" />
             <item index="1" class="java.lang.String" itemvalue="django-filters" />
             <item index="2" class="java.lang.String" itemvalue="Fabric" />
+            <item index="3" class="java.lang.String" itemvalue="django-filter" />
+            <item index="4" class="java.lang.String" itemvalue="pytest" />
+            <item index="5" class="java.lang.String" itemvalue="Django" />
+            <item index="6" class="java.lang.String" itemvalue="django-configurations" />
+            <item index="7" class="java.lang.String" itemvalue="Fabric3" />
+            <item index="8" class="java.lang.String" itemvalue="djangorestframework" />
+            <item index="9" class="java.lang.String" itemvalue="django-extensions" />
           </list>
         </value>
       </option>
